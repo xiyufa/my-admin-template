@@ -14,10 +14,8 @@
       }"
     >
       <!-- main header-->
-      <template v-if="!isFullScreen">
-        <main-header></main-header>
-        <tages-view v-show="showTagViews"></tages-view>
-      </template>
+      <main-header v-show="!isFullScreen"></main-header>
+      <tages-view v-show="showTagViews && !isFullScreen"></tages-view>
       <!-- main-content -->
       <div class="main-content-wrap">
         <transition :name="isIE ? '' : 'fade-transform'" mode="out-in">
