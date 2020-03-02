@@ -14,10 +14,13 @@
         <i class="el-icon-arrow-down el-icon--right"></i>
       </span>
       <el-dropdown-menu slot="dropdown">
-        <el-dropdown-item @click.native="logout">退出登录</el-dropdown-item>
+        <el-dropdown-item @click.native="logout">{{ $t(`header.logout`) }}</el-dropdown-item>
       </el-dropdown-menu>
     </el-dropdown>
 
+    <!-- 选择语言 -->
+    <select-language class="selectLang"></select-language>
+    
   </div>
 </template>
 
@@ -27,6 +30,7 @@ import Cookie from 'js-cookie'
 
 import FoldButton from '@/components/FoldButton'
 import Breadcrumb from '@/components/Breadcrumb'
+import SelectLanguage from '@/components/selectLanguage'
 
 import { userLogout } from '@/api/user'
 
@@ -35,7 +39,8 @@ export default {
   name: 'MainHeader',
   components: {
     FoldButton,
-    Breadcrumb
+    Breadcrumb,
+    SelectLanguage
   },
   computed: {
     ...mapGetters(['isCollapse', 'userInfo'])
@@ -48,14 +53,14 @@ export default {
       this.$store.commit('app/toggleCollapse', flag)
     },
     logout() {
-      this.$confirm('确认退出登录', '提示', { type: 'waring' })
+      this.$confirm(this.$t('message.logoutMsg'), this.$t('message.prompt'), { type: 'waring' })
         .then(async () => {
           try {
             await userLogout()
             Cookie.remove('authorization')
             window.location.reload()
           } catch (err) {
-            this.$alert(err.message || '发生了预期之外的错误，请稍后再试', '提示', { type: 'error' })
+            this.$alert(err.message || this.$t('message.errMsg'), this.$t('message.prompt'), { type: 'error' })
           }
         })
         .catch(() => {})
@@ -94,6 +99,10 @@ export default {
           font-weight: 700;
         }
       }
+    }
+    .selectLang {
+      float: right;
+      margin-right: 20px;
     }
   }
 </style>

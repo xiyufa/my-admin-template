@@ -4,6 +4,7 @@ import { MessageBox } from 'element-ui'
 
 import store from '@/store'
 import router from '@/router'
+import i18n from '@/lang'
 
 const { VUE_APP_BASE_URL } = process.env
 const isDev = process.env.NODE_ENV === 'development'
@@ -25,8 +26,9 @@ const responseInterceptors = response => {
 
   if (status === 4003) {
     // 未登录或登录信息过期
-    MessageBox.confirm('<p>您的登录信息已过期，需要重新登录</p><p style="font-size: 12px; color: red">请注意保存您的数据再进行确认操作！</p>', '提示', {
-      confirmButtonText: '去登陆',
+    MessageBox.confirm(`<p>${i18n.t('message.tokenErr')}</p>
+    <p style="font-size: 12px; color: red">${i18n.t('message.tokenErrAlertTip')}</p>`, i18n.t('message.prompt'), {
+      confirmButtonText: i18n.t('message.toLogin'),
       dangerouslyUseHTMLString: true,
       type: 'warning'
     })

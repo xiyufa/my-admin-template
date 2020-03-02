@@ -6,7 +6,7 @@ const route = {
   component: layout,
   redirect: 'page1',
   meta: {
-    title: '测试',
+    title: 'Test',
     icon: 'el-icon-s-tools'
   },
   children: [
@@ -15,7 +15,7 @@ const route = {
       name: 'testPage1',
       component: () => import('@/views/Test/TestPage1'),
       meta: {
-        title: '测试页1'
+        title: 'TestPage1'
       }
     },
     {
@@ -23,7 +23,7 @@ const route = {
       name: 'testPage2',
       component: () => import('@/views/Test/TestPage2'),
       meta: {
-        title: '测试页2'
+        title: 'TestPage2'
       }
     }
   ]

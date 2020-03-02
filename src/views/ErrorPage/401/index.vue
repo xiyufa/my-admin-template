@@ -1,16 +1,16 @@
 <template>
   <div class="error-page-container">
     <div class="padding100"></div>
-    <el-button class="go-back-btn" @click="$router.go(-1)">返回</el-button>
+    <el-button class="go-back-btn" @click="$router.go(-1)">{{ $t('401.return') }}</el-button>
     <el-row>
       <el-col :span="12">
         <h1 class="text-tremendous">Oops!</h1>
-        <h2>你没有权限访问该内容</h2>
+        <h2>{{ $t('401.title') }}</h2>
         <ul class="list-unstyled">
           <li class="link-type">
-            <router-link to="/">回首页</router-link>
+            <router-link to="/">{{ $t('401.goHome') }}</router-link>
           </li>
-          <li class="link-type"><a href="https://www.taobao.com/" target="_blank">随便看看</a></li>
+          <li class="link-type"><a href="https://www.taobao.com/" target="_blank">{{ $t('401.look') }}</a></li>
           <!-- errorType = 1 前后端路由表不一致 -->
           <li class="error-type" v-if="errorType === 1">error message: {{ errorMsg }}</li>
         </ul>

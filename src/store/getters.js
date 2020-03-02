@@ -4,6 +4,7 @@ const getters = {
   isFullScreen: state => state.app.isFullScreen,
   showTagViews: state => state.app.showTagViews,
   isIE: state => state.app.isIE,
+  language: state => state.app.language,
   // user
   authorization: state => state.user.authorization,
   roles: state => state.user.roles,

@@ -10,7 +10,7 @@
         class="login-form"
         label-position="left"
       >
-        <h3 class="title">系统登录</h3>
+        <h3 class="title">{{ $t('login.systemLogin') }}</h3>
         <el-form-item
           prop="userName"
           :rules="[
@@ -56,7 +56,7 @@
             style="width: 100%"
             :loading="submitBtnLoding"
             @click.native.prevent="handleLogin"
-          >登录</el-button>
+          >{{ $t('login.login') }}</el-button>
         </el-form-item>
       </el-form>
       <div class="other"></div>
@@ -100,7 +100,7 @@ export default {
           this.$store.commit('user/setAuthorization', authorization)
           this.$router.replace({ path: '/' }).catch(() => {})
         } catch (err) {
-          this.$alert((err.message || '发生了预期之外的错误，请稍后再试'), '提示', { type: 'error' })
+          this.$alert((err.message || this.$t('message.errmsg')), this.$t('message.prompt'), { type: 'error' })
             .then(() => {})
             .catch(() => {})
         } finally {

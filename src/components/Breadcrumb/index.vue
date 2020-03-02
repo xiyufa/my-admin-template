@@ -5,8 +5,8 @@
         <span 
           v-if="item.redirect === 'noRedirect' || index === levelList.length - 1" 
           class="no-redirect"
-        >{{ item.meta.title }}</span>
-        <a style="display: inline;" v-else @click.prevent="handleLink(item)">{{ item.meta.title }}</a>
+        >{{ $t(`route.${item.meta.title}`) }}</span>
+        <a style="display: inline;" v-else @click.prevent="handleLink(item)">{{ $t(`route.${item.meta.title}`) }}</a>
       </el-breadcrumb-item>
     </transition-group>
   </el-breadcrumb>
@@ -40,7 +40,7 @@ export default {
       let matched = this.$route.matched.filter(item => item.meta && item.meta.title)
       const first = matched[0]
       if (!this.isDashboard(first)) {
-        matched = [{ path: '/dashboard', meta: { title: '首页' }}].concat(matched)
+        matched = [{ path: '/dashboard', meta: { title: 'dashboard' }}].concat(matched)
       }
       this.levelList = matched.filter(item => item.meta && item.meta.title && item.meta.breadcrumb !== false)
     },

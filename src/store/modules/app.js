@@ -1,9 +1,13 @@
+import Cookies from 'js-cookie'
+import { getLanguage } from '@/lang'
+
 const state = {
   isCollapse: false,
   isFullScreen: false,
   showTagViews: true,
   // 判断是不是IE11及以下
-  isIE: window.navigator.userAgent.indexOf('Trident') > -1
+  isIE: window.navigator.userAgent.indexOf('Trident') > -1,
+  language: getLanguage()
 }
 
 const mutations = {
@@ -18,6 +22,11 @@ const mutations = {
   // 切换显示TagViews
   toggleTagViews(state, showTagViews) {
     state.showTagViews = showTagViews
+  },
+  // 切换语言
+  toggleLang(state, language) {
+    state.language = language
+    Cookies.set('language', language, { expires: 365 })
   }
 }
 

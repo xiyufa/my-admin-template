@@ -2,17 +2,21 @@
   <div class="http404-container">
     <div class="http404-wrap">
       <div class="pic-404">
-        <img class="pic-404__parent" src="@/assets/images/404.png" alt="404">
-        <img class="pic-404__child left" src="../../../assets/images/404_cloud.png" alt="404">
-        <img class="pic-404__child middle" src="../../../assets/images/404_cloud.png" alt="404">
-        <img class="pic-404__child right" src="../../../assets/images/404_cloud.png" alt="404">
+        <img class="pic-404__parent" src="@/assets/images/404.png" alt="404" />
+        <img class="pic-404__child left" src="../../../assets/images/404_cloud.png" alt="404" />
+        <img class="pic-404__child middle" src="../../../assets/images/404_cloud.png" alt="404" />
+        <img class="pic-404__child right" src="../../../assets/images/404_cloud.png" alt="404" />
       </div>
       <div class="text-404">
         <div class="text-404__oops">OOPS!</div>
-        <div class="text-404__headline">没有找到相关页面哦~</div>
-        <div class="text-404__info">请检查您输入的网址是否正确</div>
-        <a href="https://www.taobao.com/" class="text-404__btn look" target="__bink">随便看看</a>
-        <router-link to="/" class="text-404__btn">回首页</router-link>
+        <div class="text-404__headline">{{ $t('404.notFound') }}</div>
+        <div class="text-404__info">{{ $t('404.tip') }}</div>
+        <a
+          href="https://www.taobao.com/"
+          class="text-404__btn look"
+          target="__bink"
+        >{{ $t('404.look') }}</a>
+        <router-link to="/" class="text-404__btn">{{ $t('404.goHome') }}</router-link>
       </div>
     </div>
   </div>
@@ -96,7 +100,7 @@
         }
       }
       @keyframes cloudMiddle {
-         0% {
+        0% {
           top: 10px;
           left: 420px;
           opacity: 0;
@@ -139,7 +143,6 @@
           opacity: 0;
         }
       }
-
     }
   }
   .text-404 {
