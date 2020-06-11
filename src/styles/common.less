@@ -1,0 +1,74 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+  display: block;
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  background-color: #fff;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: inherit;
+  font-weight: 500;
+}
+.clearfix::after {
+  display: block;
+  clear: both;
+  content: "";
+}
+button {
+  border: 0;
+  outline: 0;
+}
+img {
+  display: block;
+}
+li {
+  list-style: none
+}
+a {
+  color: #000;
+  display: block;
+  text-decoration: none
+}
+a:hover {
+  text-decoration: none;
+}
+html, body, #app {
+  height: 100%;
+}
+body {
+  background-color: #f7f8fa;
+}
+/* 设置浏览器滚动条 仅chrome生效 */
+::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(144, 147, 153, .3);
+  border-radius: 6px;
+  &:hover {
+    background-clip: padding-box;
+    background-color: rgba(144, 147, 153, .8);
+  }
+}
