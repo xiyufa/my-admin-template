@@ -1,0 +1,58 @@
+{
+  "id": "1648927",
+  "name": "my-admin-template",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "6888549",
+      "name": "语言切换",
+      "font_class": "yuyanqiehuan",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "700817",
+      "name": "向右",
+      "font_class": "xiangyou",
+      "unicode": "e638",
+      "unicode_decimal": 58936
+    },
+    {
+      "icon_id": "3922109",
+      "name": "密码",
+      "font_class": "yidongduanicon-",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
+      "icon_id": "4266192",
+      "name": "用户",
+      "font_class": "yonghu",
+      "unicode": "e720",
+      "unicode_decimal": 59168
+    },
+    {
+      "icon_id": "5330692",
+      "name": "用户",
+      "font_class": "yonghu1",
+      "unicode": "e7bd",
+      "unicode_decimal": 59325
+    },
+    {
+      "icon_id": "12183287",
+      "name": "不可见",
+      "font_class": "bukejian",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "12183288",
+      "name": "可见",
+      "font_class": "kejian",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    }
+  ]
+}
