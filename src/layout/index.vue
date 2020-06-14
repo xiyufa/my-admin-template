@@ -17,17 +17,20 @@
       <main-header v-show="!isFullScreen"></main-header>
       <tages-view v-show="showTagViews && !isFullScreen"></tages-view>
       <!-- main-content -->
-      <div class="main-content-wrap">
-        <transition :name="isIE ? '' : 'fade-transform'" mode="out-in">
-          <keep-alive :include="cachedViews">
-            <router-view :key="key"></router-view>
-          </keep-alive>
-        </transition>
-      </div>
+      <el-scrollbar wrap-class="scrollbar-wrap" ref="scrollbarWrap">
+        <div class="main-content-wrap">
+          <transition :name="isIE ? '' : 'fade-transform'" mode="out-in">
+            <keep-alive :include="cachedViews">
+              <router-view :key="key"></router-view>
+            </keep-alive>
+          </transition>
+        </div>
+
+        <!-- 回到顶部 -->
+        <back-to-top :scrollHeight=scrollHeight @scrollTo="scrollTo"></back-to-top>
+      </el-scrollbar>
     </div>
 
-    <!-- 回到顶部 -->
-    <back-to-top></back-to-top>
   </div>
 </template>
 
@@ -52,16 +55,34 @@ export default {
       return this.$route.name
     }
   },
+  data() {
+    return {
+      scrollHeight: 0
+    }
+  },
   watch: {
     '$route': 'routeChangeHandle'
   },
   created() {
     this.routeChangeHandle()
   },
+  mounted() {
+    this.handleScrollbarWrap()
+  },
   methods: {
     routeChangeHandle() {
       const { fullScreen } = this.$route.meta
       this.$store.commit('app/toggleFullScreen', !!fullScreen)
+    },
+    handleScrollbarWrap() {
+      let { wrap } = this.$refs.scrollbarWrap
+      wrap.onscroll = () => {
+        this.scrollHeight = wrap.scrollTop
+      }
+    },
+    scrollTo(val) {
+      let { wrap } = this.$refs.scrollbarWrap
+      wrap.scrollTop = val
     }
   }
 }
@@ -99,6 +120,15 @@ export default {
 }
 </style>
 <style lang="less">
+  .layout-wrap {
+    .main-container {
+      height: 100%;
+      .el-scrollbar {
+        height: 100%;
+      }
+    }
+  }
+
   /* fade-transform */
   .fade-transform-leave-active,
   .fade-transform-enter-active {

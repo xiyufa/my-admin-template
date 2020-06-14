@@ -30,6 +30,10 @@ export default {
       type: Number,
       default: 400
     },
+    scrollHeight: {
+      type: Number,
+      default: 0
+    },
     backPosition: {
       type: Number,
       default: 0
@@ -62,35 +66,38 @@ export default {
     return {
       visible: false,
       interval: null,
-      isMoving: false
+      isMoving: false,
+      scrollHeights: 0
     }
   },
-  mounted() {
-    window.addEventListener('scroll', this.handleScroll)
+  watch: {
+    scrollHeight(newValue) {
+      this.handleScroll(newValue)
+    }
   },
   beforeDestroy() {
-    window.removeEventListener('scroll', this.handleScroll)
     if (this.interval) {
       clearInterval(this.interval)
     }
   },
   methods: {
-    handleScroll() {
-      this.visible = window.pageYOffset > this.visibilityHeight
+    handleScroll(scrollHeight) {
+      this.visible = scrollHeight > this.visibilityHeight
+      this.scrollHeights = scrollHeight
     },
     backToTop() {
       if (this.isMoving) return
-      const start = window.pageYOffset
+      const start = this.scrollHeights
       let i = 0
       this.isMoving = true
       this.interval = setInterval(() => {
         const next = Math.floor(this.easeInOutQuad(10 * i, start, -start, 300))
         if (next <= this.backPosition) {
-          window.scrollTo(0, this.backPosition)
+          this.$emit('scrollTo', this.backPosition)
           clearInterval(this.interval)
           this.isMoving = false
         } else {
-          window.scrollTo(0, next)
+          this.$emit('scrollTo', next)
         }
         i++
       }, 16.7)
