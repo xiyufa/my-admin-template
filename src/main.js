@@ -7,7 +7,7 @@ import i18n from './lang'
 
 import 'element-ui/lib/theme-chalk/index.css'
 import '@/assets/base-font/iconfont.css'
-import '@/styles/common.less'
+import '@/styles'
 
 import './permission'
 import '@/utils/request'
