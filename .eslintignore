@@ -1,0 +1,3 @@
+# eslint忽略目录
+src/assets
+src/components/TinymceV5.0/tinymce
