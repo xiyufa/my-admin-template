@@ -4,7 +4,8 @@ export default {
     Test: '测试',
     TestPage1: '测试页1',
     TestPage2: '测试页2',
-    TestPage3: '测试页3'
+    TestPage3: '测试页3',
+    TestPage4: '测试页4'
   },
   tagsView: {
     refresh: '刷新',

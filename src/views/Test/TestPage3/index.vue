@@ -1,7 +1,7 @@
 <template>
   <container-view class="test-wrap view-container">
     <template #contentView>
-      <div class="test-title">logo生成</div>
+      <div class="test-title">logo Test</div>
       <div class="test-content">
         <!-- <div class="poster-wrap" ref="posterWrap" hidden>
           <img src="./components/images/bg.jpg" alt="" class="bg-img">
@@ -19,7 +19,7 @@
           </div>
         </div> -->
         <el-input v-model="text" style="width: 300px;"></el-input>
-        <el-button type="primary" @click="downPoster('logoWrap', 'logo')">下载Logo</el-button>
+        <el-button type="primary" @click="downPoster('logoWrap', 'logo')">download Logo</el-button>
         <div class="logo-wrap" ref="logoWrap">
           <div class="button">{{ text }}</div>
         </div>

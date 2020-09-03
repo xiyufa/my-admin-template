@@ -33,6 +33,14 @@ const route = {
       meta: {
         title: 'TestPage3'
       }
+    },
+    {
+      path: 'page4',
+      name: 'testPage4',
+      component: () => import('@/views/Test/TestPage4'),
+      meta: {
+        title: 'TestPage4'
+      }
     }
   ]
 }

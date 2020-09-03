@@ -4,7 +4,8 @@ export default {
     Test: 'Test',
     TestPage1: 'TestPage1',
     TestPage2: 'TestPage2',
-    TestPage3: 'TestPage3'
+    TestPage3: 'TestPage3',
+    TestPage4: 'TestPage4'
   },
   tagsView: {
     refresh: 'Refresh',
