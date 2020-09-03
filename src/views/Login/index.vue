@@ -75,8 +75,8 @@ export default {
   data() {
     return {
       loginForm: {
-        userName: '',
-        password: ''
+        userName: 'admin',
+        password: 'admin'
       },
       inputType: 'password',
       submitBtnLoding: false

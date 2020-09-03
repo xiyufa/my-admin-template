@@ -27,6 +27,9 @@
               :predefine="predefineColors">
             </el-color-picker>
           </el-form-item>
+          <el-form-item label="center logo">
+            <el-switch v-model="formData.isShow"></el-switch>
+          </el-form-item>
           <el-form-item>
             <el-button icon="el-icon-magic-stick" type="primary" @click="createQRcode">Create QRcode</el-button>
           </el-form-item>
@@ -38,6 +41,9 @@
           width="30%"
         >
           <div class="dialog-wrap">
+            <div class="centre-logo" v-if="formData.isShow">
+              <img src="../../../assets/logo/logo.png" alt="" class="img">
+            </div>
             <div class="qrcode-wrap" ref="qrcodeWrap"></div>
           </div>
           <template #footer>
@@ -63,7 +69,8 @@ export default {
         bgc: 'rgba(255, 255, 255, 1)',
         textc: 'rgba(0, 0, 0, 1)',
         width: 256,
-        height: 256
+        height: 256,
+        isShow: false
       },
       predefineColors: [
         '#ff4500',
@@ -103,6 +110,7 @@ export default {
       html2canvas(el)
         .then(canvas => {
           let imgUrl = canvas.toDataURL('image/png')
+
           let a = document.createElement('a')
           a.href = imgUrl
           a.download = text
@@ -125,8 +133,25 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
-      .qrcode-wrap {
-        border: 1px solid #ccc;
+      background-color: #909399;
+      padding: 15px 0;
+      position: relative;
+      .centre-logo {
+        position: absolute;
+        height: 60px;
+        width: 60px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, .3);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff;
+        .img {
+          border-radius: 5px;
+          border: 1px solid #C0C4CC;
+          width: 50px;
+          height: 50px;
+        }
       }
     }
   }
