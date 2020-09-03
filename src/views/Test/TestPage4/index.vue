@@ -20,7 +20,7 @@
               :predefine="predefineColors">
             </el-color-picker>
           </el-form-item>
-          <el-form-item label="text-colot：">
+          <el-form-item label="text-color：">
             <el-color-picker
               v-model="formData.textc"
               show-alpha
@@ -33,7 +33,7 @@
         </el-form>
         <el-dialog
           :visible.sync="showQRCode"
-          title="下载二维码"
+          title="Download QRCode"
           destroy-on-close
           width="30%"
         >
@@ -41,8 +41,8 @@
             <div class="qrcode-wrap" ref="qrcodeWrap"></div>
           </div>
           <template #footer>
-            <el-button @click="showQRCode = false">取 消</el-button>
-            <el-button icon="el-icon-download" type="primary" @click="downloadQRcode('qrcodeWrap')">下 载</el-button>
+            <el-button @click="showQRCode = false">cancel</el-button>
+            <el-button icon="el-icon-download" type="primary" @click="downloadQRcode('qrcodeWrap')">download</el-button>
           </template>
         </el-dialog>
       </div>
