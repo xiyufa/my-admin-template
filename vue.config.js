@@ -5,7 +5,7 @@ const name = defaultSettings.title || 'Vue Template Admin'
 const isPro = process.env.NODE_ENV === 'production'
 
 module.exports = {
-  publicPath: isPro ? '/vue-template-admin' : '/',
+  publicPath: isPro ? '/test' : '/',
   productionSourceMap: false,
   chainWebpack: config => {
     // 配置@别名
