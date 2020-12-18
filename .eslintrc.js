@@ -21,6 +21,7 @@ module.exports = {
     'no-eval': 'error',
     'no-param-reassign': 'error',
     'no-sequences': 'error',
+    'no-unused-vars': 'warn',
     'radix': ['error', 'always'], // 在parseInt需要提供第二个参数 parseInt('1', 10)
     'require-await': 'error', // 禁止使用不带 await 表达式的 async 函数
     'strict': ['error', 'global'], // 全局使用严格模式

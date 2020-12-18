@@ -26,12 +26,14 @@
 </template>
 
 <script>
+
 export default {
   data() {
     return {
       value1: []
     }
-  }
+  },
+  mounted() {}
 }
 </script>
 

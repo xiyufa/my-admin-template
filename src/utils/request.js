@@ -3,7 +3,7 @@ import Cookie from 'js-cookie'
 import { MessageBox } from 'element-ui'
 
 import store from '@/store'
-import router from '@/router'
+import router from '@/routers'
 
 const { VUE_APP_BASE_URL } = process.env
 const isDev = process.env.NODE_ENV === 'development'

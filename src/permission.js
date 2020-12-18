@@ -2,7 +2,7 @@ import Nprogress from 'nprogress'
 import _ from 'lodash'
 
 import store from '@/store'
-import router, { whileList, asyncRoutes, constantRoutes } from '@/router'
+import router, { whileList, asyncRoutes, constantRoutes } from '@/routers'
 import { filterUserRoutes, filterUserMenu } from '@/utils/filterRoutes'
 import { getPageTitle } from '@/utils/getPageTitle'
 
